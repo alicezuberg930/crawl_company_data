@@ -1,0 +1,5 @@
+/.agents
+/.uv-cache
+/.uv-python
+/.venv
+/__pycache__
