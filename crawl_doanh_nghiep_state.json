@@ -1,5 +1,6 @@
 {
-  "category_index": 29,
+  "category_index": 92,
   "page": 10,
-  "completed": false
+  "completed": false,
+  "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
 }
