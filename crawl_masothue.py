@@ -437,6 +437,11 @@ def parse_company_page(html: str, source_url: str) -> dict[str, Any]:
         ("Ngành nghề chính", "Ngành chính"),
     )
 
+    status = value_by_label(
+        tax_table,
+        ("Tình trạng hoạt động", "Tình trạng"),
+    )
+
     updated_at = extract_updated_at(soup.get_text(" ", strip=True))
     other_businesses = extract_businesses(soup, main_business)
 
@@ -445,6 +450,7 @@ def parse_company_page(html: str, source_url: str) -> dict[str, Any]:
         "tax_code": tax_code,
         "address": address,
         "legal_representative": legal_representative,
+        "status": status,
         "main_business": main_business,
         "updated_at": updated_at,
         "other_businesses": other_businesses,
