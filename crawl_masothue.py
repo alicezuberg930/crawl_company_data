@@ -432,6 +432,14 @@ def parse_company_page(html: str, source_url: str) -> dict[str, Any]:
         ("Người đại diện pháp luật", "Người đại diện"),
     )
 
+    phone = select_text(
+        tax_table,
+        (
+            '[itemprop="telephone"] .copy',
+            '[itemprop="telephone"]',
+        ),
+    )
+
     main_business = value_by_label(
         tax_table,
         ("Ngành nghề chính", "Ngành chính"),
@@ -440,6 +448,21 @@ def parse_company_page(html: str, source_url: str) -> dict[str, Any]:
     status = value_by_label(
         tax_table,
         ("Tình trạng hoạt động", "Tình trạng"),
+    )
+
+    managed_by = value_by_label(
+        tax_table,
+        ("Quản lý bởi", "Quản lý"),
+    )
+
+    business_type = value_by_label(
+        tax_table,
+        ("Loại hình doanh nghiệp", "Loại hình"),
+    )
+
+    active_date = value_by_label(
+        tax_table,
+        ("Ngày hoạt động", "Ngày thành lập"),
     )
 
     updated_at = extract_updated_at(soup.get_text(" ", strip=True))
@@ -454,6 +477,10 @@ def parse_company_page(html: str, source_url: str) -> dict[str, Any]:
         "main_business": main_business,
         "updated_at": updated_at,
         "other_businesses": other_businesses,
+        "managed_by": managed_by,
+        "business_type": business_type,
+        "phone": phone,
+        "active_date": active_date,
     }
 
     # Một số hồ sơ cũ có thể thiếu người đại diện hoặc ngành nghề chính.
