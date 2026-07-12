@@ -1,0 +1,17 @@
+[
+  {
+    "index": 320,
+    "business_url": "https://masothue.com/0303520953-cong-ty-tnhh-bo-ba",
+    "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
+  },
+  {
+    "index": 3223,
+    "business_url": "https://masothue.com/1301006712-cong-ty-tnhh-cong-nghe-ky-thuat-tin-phat",
+    "error": "Trang trả về HTTP 404: https://masothue.com/1301006712-cong-ty-tnhh-cong-nghe-ky-thuat-tin-phat"
+  },
+  {
+    "index": 11889,
+    "business_url": "https://masothue.com/1401378030-doanh-nghiep-tn-xay-dung-thuy-loi-truong-binh",
+    "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
+  }
+]

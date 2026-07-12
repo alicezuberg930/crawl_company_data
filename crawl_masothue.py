@@ -654,14 +654,13 @@ def crawl_batch(
                 write_json(failures, failed_path)
                 write_json(
                     {
-                        "next_index": index + (0 if stop_on_error else 1),
+                        "next_index": index,
                         "total_urls": len(urls),
                         "completed": False,
                     },
                     state_path,
                 )
-                if stop_on_error:
-                    return 1
+                return 1
             else:
                 write_json(
                     {
