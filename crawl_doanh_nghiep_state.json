@@ -1,6 +1,6 @@
 {
-  "category_index": 222,
-  "page": 5,
+  "category_index": 1120,
+  "page": 1,
   "completed": false,
-  "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
+  "error": "Trang trả về HTTP 404: https://masothue.com/tra-cuu-ma-so-thue-theo-nganh-nghe/nong-nghiep-lam-nghiep-va-thuy-san-A?page=1"
 }
