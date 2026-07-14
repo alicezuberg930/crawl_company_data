@@ -10,8 +10,8 @@
     "error": "Trang trả về HTTP 404: https://masothue.com/1301006712-cong-ty-tnhh-cong-nghe-ky-thuat-tin-phat"
   },
   {
-    "index": 15873,
-    "business_url": "https://masothue.com/0107849420-cong-ty-tnhh-dubai-viet-nam",
-    "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
+    "index": 18063,
+    "business_url": "https://masothue.com/1402092115-cong-ty-tnhh-mtv-ngan-tin-sa-dec",
+    "error": "Không thể kết nối tới trang: HTTPSConnectionPool(host='masothue.com', port=443): Read timed out."
   }
 ]
