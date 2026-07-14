@@ -8,10 +8,5 @@
     "index": 3223,
     "business_url": "https://masothue.com/1301006712-cong-ty-tnhh-cong-nghe-ky-thuat-tin-phat",
     "error": "Trang trả về HTTP 404: https://masothue.com/1301006712-cong-ty-tnhh-cong-nghe-ky-thuat-tin-phat"
-  },
-  {
-    "index": 18063,
-    "business_url": "https://masothue.com/1402092115-cong-ty-tnhh-mtv-ngan-tin-sa-dec",
-    "error": "Không thể kết nối tới trang: HTTPSConnectionPool(host='masothue.com', port=443): Read timed out."
   }
 ]
