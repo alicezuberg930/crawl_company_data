@@ -8,5 +8,10 @@
     "index": 3223,
     "business_url": "https://masothue.com/1301006712-cong-ty-tnhh-cong-nghe-ky-thuat-tin-phat",
     "error": "Trang trả về HTTP 404: https://masothue.com/1301006712-cong-ty-tnhh-cong-nghe-ky-thuat-tin-phat"
+  },
+  {
+    "index": 17570,
+    "business_url": "https://masothue.com/0108330726-cong-ty-tnhh-san-xuat-thuong-mai-va-xay-dung-vinh-khang",
+    "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
   }
 ]
