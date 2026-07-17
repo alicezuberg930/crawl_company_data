@@ -257,45 +257,6 @@ def value_by_label(table: Tag, labels: tuple[str, ...]) -> str | None:
     return None
 
 
-def extract_updated_at(page_text: str) -> str | None:
-    """Trích thời điểm cập nhật và chuẩn hóa về YYYY-MM-DD HH:MM:SS."""
-    page_text = clean_text(page_text) or ""
-
-    iso_match = re.search(
-        r"(?:cập\s+nhật\s+)?lần\s+cuối\s+vào\s+"
-        r"(\d{4}-\d{2}-\d{2}(?:\s+\d{2}:\d{2}:\d{2})?)",
-        page_text,
-        flags=re.IGNORECASE,
-    )
-    if iso_match:
-        return iso_match.group(1)
-
-    vi_match = re.search(
-        r"(?:cập\s+nhật\s+)?lần\s+cuối\s+vào\s+"
-        r"(\d{2}:\d{2}:\d{2})\s+(?:ngày\s+)?(\d{2}/\d{2}/\d{4})",
-        page_text,
-        flags=re.IGNORECASE,
-    )
-    if vi_match:
-        parsed = datetime.strptime(
-            f"{vi_match.group(2)} {vi_match.group(1)}",
-            "%d/%m/%Y %H:%M:%S",
-        )
-        return parsed.strftime("%Y-%m-%d %H:%M:%S")
-
-    date_only_match = re.search(
-        r"(?:cập\s+nhật\s+)?lần\s+cuối\s+vào\s+"
-        r"(?:ngày\s+)?(\d{2}/\d{2}/\d{4})",
-        page_text,
-        flags=re.IGNORECASE,
-    )
-    if date_only_match:
-        parsed = datetime.strptime(date_only_match.group(1), "%d/%m/%Y")
-        return parsed.strftime("%Y-%m-%d")
-
-    return None
-
-
 def looks_like_business_table(table: Tag) -> bool:
     """Kiểm tra sơ bộ một bảng có phải bảng ngành nghề hay không."""
     text = normalized(table.get_text(" ", strip=True))
@@ -465,8 +426,7 @@ def parse_company_page(html: str, source_url: str) -> dict[str, Any]:
         ("Ngày hoạt động", "Ngày thành lập"),
     )
 
-    updated_at = extract_updated_at(soup.get_text(" ", strip=True))
-    other_businesses = extract_businesses(soup, main_business)
+    # other_businesses = extract_businesses(soup, main_business)
 
     data: dict[str, Any] = {
         "company_name": company_name,
@@ -475,8 +435,7 @@ def parse_company_page(html: str, source_url: str) -> dict[str, Any]:
         "legal_representative": legal_representative,
         "status": status,
         "main_business": main_business,
-        "updated_at": updated_at,
-        "other_businesses": other_businesses,
+        # "other_businesses": other_businesses,
         "managed_by": managed_by,
         "business_type": business_type,
         "phone": phone,

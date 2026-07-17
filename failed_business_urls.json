@@ -33,5 +33,50 @@
     "index": 21552,
     "business_url": "https://masothue.com/1700101407-005-chi-nhanh-cong-ty-co-phan-xi-mang-ha-tien-1-ban-quan-ly-du-an-tram-nghien-long-an",
     "error": "Trang trả về HTTP 404: https://masothue.com/1700101407-005-chi-nhanh-cong-ty-co-phan-xi-mang-ha-tien-1-ban-quan-ly-du-an-tram-nghien-long-an"
+  },
+  {
+    "index": 21684,
+    "business_url": "https://masothue.com/3300100875-002-chi-nhanh-cong-ty-huu-han-xi-mang-luks-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/3300100875-002-chi-nhanh-cong-ty-huu-han-xi-mang-luks-viet-nam"
+  },
+  {
+    "index": 22910,
+    "business_url": "https://masothue.com/0400347944-006-trung-tam-tu-van-dau-tu-xay-dung-cjc-cong-ty-co-phan-xay-dung-71",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0400347944-006-trung-tam-tu-van-dau-tu-xay-dung-cjc-cong-ty-co-phan-xay-dung-71"
+  },
+  {
+    "index": 22960,
+    "business_url": "https://masothue.com/0310936222-cong-ty-tnhh-ihome-systems-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0310936222-cong-ty-tnhh-ihome-systems-viet-nam"
+  },
+  {
+    "index": 22961,
+    "business_url": "https://masothue.com/0304807483-cong-ty-tnhh-tu-van-thiet-ke-lien-hiep-quoc-te",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0304807483-cong-ty-tnhh-tu-van-thiet-ke-lien-hiep-quoc-te"
+  },
+  {
+    "index": 22962,
+    "business_url": "https://masothue.com/0303266993-cong-ty-tnhh-tu-van-du-an-va-thiet-ke-kien-truc-av",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0303266993-cong-ty-tnhh-tu-van-du-an-va-thiet-ke-kien-truc-av"
+  },
+  {
+    "index": 22965,
+    "business_url": "https://masothue.com/0305746522-cong-ty-tnhh-mot-thanh-vien-tu-van-aptix",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0305746522-cong-ty-tnhh-mot-thanh-vien-tu-van-aptix"
+  },
+  {
+    "index": 22966,
+    "business_url": "https://masothue.com/0310024272-cong-ty-tnhh-ec-harris-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0310024272-cong-ty-tnhh-ec-harris-viet-nam"
+  },
+  {
+    "index": 22967,
+    "business_url": "https://masothue.com/0305898370-cong-ty-tnhh-jurutera-tssc-lim-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0305898370-cong-ty-tnhh-jurutera-tssc-lim-viet-nam"
+  },
+  {
+    "index": 24189,
+    "business_url": "https://masothue.com/4400999859-doanh-nghiep-tu-nhan-thuong-mai-va-san-xuat-ca-phe-minh-hoang",
+    "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
   }
 ]
