@@ -75,8 +75,23 @@
     "error": "Trang trả về HTTP 404: https://masothue.com/0305898370-cong-ty-tnhh-jurutera-tssc-lim-viet-nam"
   },
   {
-    "index": 24508,
-    "business_url": "https://masothue.com/1601989767-cong-ty-tnhh-mot-thanh-vien-xuat-nhap-khau-may-mac-kim-chuong",
+    "index": 25568,
+    "business_url": "https://masothue.com/0305070636-cong-ty-tnhh-samudera-shipphing-line-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0305070636-cong-ty-tnhh-samudera-shipphing-line-viet-nam"
+  },
+  {
+    "index": 25571,
+    "business_url": "https://masothue.com/0303308971-cong-ty-tnhh-wings-logistics-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0303308971-cong-ty-tnhh-wings-logistics-viet-nam"
+  },
+  {
+    "index": 25572,
+    "business_url": "https://masothue.com/0311433172-cong-ty-tnhh-wts-international-logistics-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0311433172-cong-ty-tnhh-wts-international-logistics-viet-nam"
+  },
+  {
+    "index": 26814,
+    "business_url": "https://masothue.com/2400653631-cong-ty-tnhh-mot-thanh-vien-nam-cuong-bac-giang",
     "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
   }
 ]
