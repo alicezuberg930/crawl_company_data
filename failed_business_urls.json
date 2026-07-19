@@ -90,8 +90,18 @@
     "error": "Trang trả về HTTP 404: https://masothue.com/0311433172-cong-ty-tnhh-wts-international-logistics-viet-nam"
   },
   {
-    "index": 26814,
-    "business_url": "https://masothue.com/2400653631-cong-ty-tnhh-mot-thanh-vien-nam-cuong-bac-giang",
+    "index": 26949,
+    "business_url": "https://masothue.com/1101876412-cong-ty-tnhh-san-xuat-gach-tuynel-binh-thanh",
+    "error": "Trang trả về HTTP 404: https://masothue.com/1101876412-cong-ty-tnhh-san-xuat-gach-tuynel-binh-thanh"
+  },
+  {
+    "index": 28276,
+    "business_url": "https://masothue.com/3502155355-cong-ty-trach-nhiem-huu-han-twinkle-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/3502155355-cong-ty-trach-nhiem-huu-han-twinkle-viet-nam"
+  },
+  {
+    "index": 28939,
+    "business_url": "https://masothue.com/0313713619-001-chi-nhanh-cong-ty-tnhh-tu-dong-hoa-phuong-nhi-xuong-lap-rap",
     "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
   }
 ]
