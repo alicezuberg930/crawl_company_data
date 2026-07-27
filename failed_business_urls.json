@@ -100,8 +100,28 @@
     "error": "Trang trả về HTTP 404: https://masothue.com/3502155355-cong-ty-trach-nhiem-huu-han-twinkle-viet-nam"
   },
   {
-    "index": 28939,
-    "business_url": "https://masothue.com/0313713619-001-chi-nhanh-cong-ty-tnhh-tu-dong-hoa-phuong-nhi-xuong-lap-rap",
-    "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
+    "index": 29919,
+    "business_url": "https://masothue.com/0500472995-cong-ty-tnhh-cao-su-vu-que-chuyen-tu-ha-tay-ve-so-cu-0302001291",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0500472995-cong-ty-tnhh-cao-su-vu-que-chuyen-tu-ha-tay-ve-so-cu-0302001291"
+  },
+  {
+    "index": 30082,
+    "business_url": "https://masothue.com/3800337600-cong-ty-tnhh-word-tec-vina",
+    "error": "Trang trả về HTTP 404: https://masothue.com/3800337600-cong-ty-tnhh-word-tec-vina"
+  },
+  {
+    "index": 30192,
+    "business_url": "https://masothue.com/0106752754-cong-ty-co-phan-dau-tu-thuong-mai-bsl-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0106752754-cong-ty-co-phan-dau-tu-thuong-mai-bsl-viet-nam"
+  },
+  {
+    "index": 30195,
+    "business_url": "https://masothue.com/0300685795-cong-ty-trach-nhiem-huu-han-askey-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0300685795-cong-ty-trach-nhiem-huu-han-askey-viet-nam"
+  },
+  {
+    "index": 31436,
+    "business_url": "https://masothue.com/0311359112-001-chi-nhanh-1-cong-ty-tnhh-thuong-mai-dich-vu-san-xuat-dien-co-thang-tien",
+    "error": "Không thể kết nối tới trang: HTTPSConnectionPool(host='masothue.com', port=443): Max retries exceeded with url: /0311359112-001-chi-nhanh-1-cong-ty-tnhh-thuong-mai-dich-vu-san-xuat-dien-co-thang-tien (Caused by NameResolutionError(\"HTTPSConnection(host='masothue.com', port=443): Failed to resolve 'masothue.com' ([Errno -2] Name or service not known)\"))"
   }
 ]
