@@ -120,8 +120,13 @@
     "error": "Trang trả về HTTP 404: https://masothue.com/0300685795-cong-ty-trach-nhiem-huu-han-askey-viet-nam"
   },
   {
-    "index": 31436,
-    "business_url": "https://masothue.com/0311359112-001-chi-nhanh-1-cong-ty-tnhh-thuong-mai-dich-vu-san-xuat-dien-co-thang-tien",
-    "error": "Không thể kết nối tới trang: HTTPSConnectionPool(host='masothue.com', port=443): Max retries exceeded with url: /0311359112-001-chi-nhanh-1-cong-ty-tnhh-thuong-mai-dich-vu-san-xuat-dien-co-thang-tien (Caused by NameResolutionError(\"HTTPSConnection(host='masothue.com', port=443): Failed to resolve 'masothue.com' ([Errno -2] Name or service not known)\"))"
+    "index": 31778,
+    "business_url": "https://masothue.com/0400101161-024-nha-may-cap-dien-tau-thuy-vinashin-chi-nhanh-cong-ty-tnhh-mot-thanh-vien-xay-lap-va-cong-nghiep-tau-thuy-mien-trung",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0400101161-024-nha-may-cap-dien-tau-thuy-vinashin-chi-nhanh-cong-ty-tnhh-mot-thanh-vien-xay-lap-va-cong-nghiep-tau-thuy-mien-trung"
+  },
+  {
+    "index": 32401,
+    "business_url": "https://masothue.com/0108682196-cong-ty-co-phan-san-xuat-va-thuong-mai-chieu-sang-hmt",
+    "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
   }
 ]
