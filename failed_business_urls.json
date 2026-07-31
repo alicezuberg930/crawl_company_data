@@ -125,8 +125,18 @@
     "error": "Trang trả về HTTP 404: https://masothue.com/0400101161-024-nha-may-cap-dien-tau-thuy-vinashin-chi-nhanh-cong-ty-tnhh-mot-thanh-vien-xay-lap-va-cong-nghiep-tau-thuy-mien-trung"
   },
   {
-    "index": 32401,
-    "business_url": "https://masothue.com/0108682196-cong-ty-co-phan-san-xuat-va-thuong-mai-chieu-sang-hmt",
+    "index": 32982,
+    "business_url": "https://masothue.com/0106817803-cong-ty-tnhh-smart-key-factory-viet-nam",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0106817803-cong-ty-tnhh-smart-key-factory-viet-nam"
+  },
+  {
+    "index": 35820,
+    "business_url": "https://masothue.com/4600100003-010-chi-nhanh-cong-ty-tnhh-mot-thanh-vien-kim-loai-mau-thai-nguyen-xi-nghiep-luyen-kim-mau-ii",
+    "error": "Trang trả về HTTP 404: https://masothue.com/4600100003-010-chi-nhanh-cong-ty-tnhh-mot-thanh-vien-kim-loai-mau-thai-nguyen-xi-nghiep-luyen-kim-mau-ii"
+  },
+  {
+    "index": 36244,
+    "business_url": "https://masothue.com/0900342824-cong-ty-tnhh-cong-nghe-va-thuong-mai-hoang-anh",
     "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
   }
 ]
