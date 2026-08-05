@@ -9,3 +9,6 @@
 
 - Crawl all business details
 python crawl_masothue.py --input doanh_nghiep_urls.json --output doanh_nghiep_chi_tiet.json
+
+- Single business
+python crawl_masothue.py --url "https://masothue.com/..." --output company.json

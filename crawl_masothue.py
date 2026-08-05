@@ -657,8 +657,7 @@ def build_parser() -> argparse.ArgumentParser:
         )
     )
     parser.add_argument(
-        "url",
-        nargs="?",
+        "--url",
         help="URL trang chi tiết cho chế độ crawl một doanh nghiệp.",
     )
     parser.add_argument(
