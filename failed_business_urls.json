@@ -135,8 +135,23 @@
     "error": "Trang trả về HTTP 404: https://masothue.com/4600100003-010-chi-nhanh-cong-ty-tnhh-mot-thanh-vien-kim-loai-mau-thai-nguyen-xi-nghiep-luyen-kim-mau-ii"
   },
   {
-    "index": 36244,
-    "business_url": "https://masothue.com/0900342824-cong-ty-tnhh-cong-nghe-va-thuong-mai-hoang-anh",
+    "index": 39096,
+    "business_url": "https://masothue.com/0312369378-cong-ty-co-phan-thuong-mai-va-dich-vu-co-khi-che-tao-ankatech",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0312369378-cong-ty-co-phan-thuong-mai-va-dich-vu-co-khi-che-tao-ankatech"
+  },
+  {
+    "index": 44858,
+    "business_url": "https://masothue.com/0300823163-cong-ty-tnhh-korea-express-saigon-logistics",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0300823163-cong-ty-tnhh-korea-express-saigon-logistics"
+  },
+  {
+    "index": 44912,
+    "business_url": "https://masothue.com/0311214406-cong-ty-tnhh-beames-associates",
+    "error": "Trang trả về HTTP 404: https://masothue.com/0311214406-cong-ty-tnhh-beames-associates"
+  },
+  {
+    "index": 46042,
+    "business_url": "https://masothue.com/0801080247-cong-ty-co-phan-phuong-thai-son",
     "error": "Trang từ chối hoặc giới hạn yêu cầu HTTP (status 403). Hãy tăng --delay và chạy tiếp từ checkpoint."
   }
 ]
