@@ -7,6 +7,8 @@ import os
 import tempfile
 from pathlib import Path
 
+from crawl_paths import resolve_json_path
+
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -56,6 +58,8 @@ def replace_safely(path, data):
 
 def main():
     args = parse_args()
+    args.input = resolve_json_path(args.input)
+    args.output = resolve_json_path(args.output) if args.output else None
 
     with args.input.open('r', encoding='utf-8-sig') as file:
         data = update_business_codes(json.load(file))

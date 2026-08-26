@@ -1,5 +1,7 @@
 import json
 
+from crawl_paths import crawl_data_path
+
 # INPUT_FILE = "doanh_nghiep_chi_tiet.json"
 # OUTPUT_FILE = "a_deduplicated.json"
 
@@ -20,10 +22,10 @@ import json
 #     seen_tax_codes.add(tax_code)
 #     unique_data.append(obj)
 
-INPUT_FILE = "danh_muc_nganh_nghe.json"
-OUTPUT_FILE = "a_deduplicated.json"
+INPUT_FILE = crawl_data_path("danh_muc_nganh_nghe.json")
+OUTPUT_FILE = crawl_data_path("a_deduplicated.json")
 
-with open(INPUT_FILE, "r", encoding="utf-8") as f:
+with INPUT_FILE.open("r", encoding="utf-8") as f:
     data = json.load(f)
 
 seen_business_names = set()
@@ -40,7 +42,8 @@ for obj in data:
     seen_business_names.add(business_name)
     unique_data.append(obj)
 
-with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+with OUTPUT_FILE.open("w", encoding="utf-8") as f:
     json.dump(unique_data, f, ensure_ascii=False, indent=2)
 
 print(f"Original objects : {len(data)}")

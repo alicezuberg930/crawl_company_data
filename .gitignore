@@ -3,3 +3,4 @@
 /.uv-python
 /.venv
 /__pycache__
+/crawl_data

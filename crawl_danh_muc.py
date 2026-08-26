@@ -3,8 +3,7 @@
 Crawl toàn bộ danh mục ngành nghề từ masothue.com.
 
 Đầu ra mặc định:
-    danh_muc_nganh_nghe.json
-    final_danh_muc_page.txt
+    crawl_data/danh_muc_nganh_nghe.json
 
 Chạy:
     python crawl_danh_muc.py
@@ -24,9 +23,9 @@ from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlunparse
 
 from bs4 import BeautifulSoup
 
+from crawl_paths import crawl_data_path, resolve_json_path
 from crawl_masothue import (
     CrawlError,
-    atomic_write_text,
     clean_text,
     create_session,
     fetch_html,
@@ -36,8 +35,7 @@ from crawl_masothue import (
 
 
 BASE_URL = "https://masothue.com/tra-cuu-ma-so-thue-theo-nganh-nghe/"
-DEFAULT_OUTPUT = Path("danh_muc_nganh_nghe.json")
-DEFAULT_INDEX_FILE = Path("final_danh_muc_page.txt")
+DEFAULT_OUTPUT = crawl_data_path("danh_muc_nganh_nghe.json")
 CATEGORY_PATH = "/tra-cuu-ma-so-thue-theo-nganh-nghe/"
 CODE_PATTERN = re.compile(r"^(?:[A-Za-z]|\d{1,6})$")
 NUMERIC_COMBINED_PATTERN = re.compile(r"^(\d{1,6})\s+(.+)$")
@@ -136,31 +134,12 @@ def load_existing(path: Path) -> list[dict[str, str]]:
     return [item for item in raw if isinstance(item, dict)]
 
 
-def read_last_page(path: Path) -> int:
-    if not path.exists():
-        return 0
-    try:
-        return max(0, int(path.read_text(encoding="utf-8").strip() or "0"))
-    except ValueError:
-        return 0
-
-
-def save_last_page(path: Path, page: int) -> None:
-    atomic_write_text(path, f"{max(0, page)}\n")
-
-
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Crawl toàn bộ danh mục ngành nghề trên masothue.com."
     )
     parser.add_argument("--base-url", default=BASE_URL)
     parser.add_argument("-o", "--output", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument(
-        "--index-file",
-        type=Path,
-        default=DEFAULT_INDEX_FILE,
-        help="Lưu trang thành công cuối cùng.",
-    )
     parser.add_argument("--start-page", type=int, help="Ép trang bắt đầu.")
     parser.add_argument(
         "--restart",
@@ -178,6 +157,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     args = build_parser().parse_args()
+    args.output = resolve_json_path(args.output)
+
     if args.delay < 0:
         print("Lỗi: --delay không được âm.")
         return 2
@@ -187,23 +168,17 @@ def main() -> int:
 
     if args.restart:
         categories: list[dict[str, str]] = []
-        last_successful_page = 0
     else:
         try:
             categories = load_existing(args.output)
         except CrawlError as exc:
             print(f"Lỗi: {exc}")
             return 1
-        last_successful_page = read_last_page(args.index_file)
 
     if args.start_page is not None:
         page = max(1, args.start_page)
-    elif categories and last_successful_page > 0:
-        page = last_successful_page + 1
     else:
         page = 1
-        if not categories:
-            last_successful_page = 0
 
     seen_urls = {
         str(item.get("detail_url"))
@@ -224,28 +199,17 @@ def main() -> int:
                 html = fetch_html(page_url, session=session)
                 page_items = parse_categories(html, page_url)
             except (ValueError, CrawlError) as exc:
-                save_last_page(args.index_file, last_successful_page)
                 print(f"Crawl thất bại tại page={page}: {exc}")
-                print(
-                    "Đã lưu trang thành công cuối cùng "
-                    f"{last_successful_page} vào {args.index_file.resolve()}"
-                )
                 return 1
 
             fingerprint = tuple(item["detail_url"] for item in page_items)
             if not page_items:
-                save_last_page(args.index_file, last_successful_page)
-                print(
-                    f"Page={page} không còn dữ liệu. Trang cuối: "
-                    f"{last_successful_page}."
-                )
+                print(f"Page={page} không còn dữ liệu.")
                 break
 
             if fingerprint in seen_fingerprints:
-                save_last_page(args.index_file, last_successful_page)
                 print(
-                    f"Page={page} lặp lại dữ liệu cũ; dừng để tránh vòng lặp. "
-                    f"Trang cuối: {last_successful_page}."
+                    f"Page={page} lặp lại dữ liệu cũ; dừng để tránh vòng lặp."
                 )
                 break
             seen_fingerprints.add(fingerprint)
@@ -257,17 +221,8 @@ def main() -> int:
                     categories.append(item)
                     new_count += 1
 
-            if new_count == 0:
-                save_last_page(args.index_file, last_successful_page)
-                print(
-                    f"Page={page} không có ngành nghề mới; dừng. "
-                    f"Trang cuối: {last_successful_page}."
-                )
-                break
-
-            write_json(categories, args.output)
-            last_successful_page = page
-            save_last_page(args.index_file, last_successful_page)
+            if new_count > 0:
+                write_json(categories, args.output)
             print(
                 f"  Lấy được {len(page_items)} mục, mới {new_count}; "
                 f"tổng {len(categories)}."
@@ -282,7 +237,6 @@ def main() -> int:
                 time.sleep(args.delay)
 
     print(f"Đã lưu danh mục: {args.output.resolve()}")
-    print(f"Trang thành công cuối cùng: {last_successful_page}")
     return 0
 
 

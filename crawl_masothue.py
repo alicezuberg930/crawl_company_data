@@ -5,12 +5,12 @@ Crawl trang chi tiết doanh nghiệp trên masothue.com.
 Chế độ một URL:
     python crawl_masothue.py \
       "https://masothue.com/1102175850-cong-ty-tnhh-tmdv-ha-phi-nom-group" \
-      -o company.json
+      -o crawl_data/company.json
 
 Chế độ hàng loạt, đọc file do crawl_doanh_nghiep.py tạo:
     python crawl_masothue.py \
-      --input doanh_nghiep_urls.json \
-      --output doanh_nghiep_chi_tiet.json
+      --input crawl_data/doanh_nghiep_urls.json \
+      --output crawl_data/doanh_nghiep_chi_tiet.json
 
 Cài thư viện:
     python -m pip install requests beautifulsoup4
@@ -33,15 +33,17 @@ from bs4 import BeautifulSoup, Tag
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+from crawl_paths import crawl_data_path, resolve_json_path
+
 
 DEFAULT_URL = (
     "https://masothue.com/"
     "1102175850-cong-ty-tnhh-tmdv-ha-phi-nom-group"
 )
-DEFAULT_INPUT = Path("doanh_nghiep_urls.json")
-DEFAULT_BATCH_OUTPUT = Path("doanh_nghiep_chi_tiet.json")
-DEFAULT_STATE_FILE = Path("crawl_masothue_state.json")
-DEFAULT_FAILED_FILE = Path("failed_business_urls.json")
+DEFAULT_INPUT = crawl_data_path("doanh_nghiep_urls.json")
+DEFAULT_BATCH_OUTPUT = crawl_data_path("doanh_nghiep_chi_tiet.json")
+DEFAULT_STATE_FILE = crawl_data_path("crawl_masothue_state.json")
+DEFAULT_FAILED_FILE = crawl_data_path("failed_business_urls.json")
 
 HEADERS = {
     "User-Agent": (
@@ -725,13 +727,17 @@ def main() -> int:
 
     try:
         if args.input or not args.url:
-            input_path = args.input or DEFAULT_INPUT
-            output_path = args.output or DEFAULT_BATCH_OUTPUT
+            input_path = resolve_json_path(args.input) if args.input else DEFAULT_INPUT
+            output_path = (
+                resolve_json_path(args.output)
+                if args.output
+                else DEFAULT_BATCH_OUTPUT
+            )
             return crawl_batch(
                 input_path=input_path,
                 output_path=output_path,
-                state_path=args.state_file,
-                failed_path=args.failed_file,
+                state_path=resolve_json_path(args.state_file),
+                failed_path=resolve_json_path(args.failed_file),
                 delay=args.delay,
                 restart=args.restart,
                 stop_on_error=args.stop_on_error,
@@ -739,8 +745,10 @@ def main() -> int:
             )
 
         data = crawl_company(args.url)
-        output_path = args.output or Path(
-            f"company_{data.get('tax_code') or 'unknown'}.json"
+        output_path = (
+            resolve_json_path(args.output)
+            if args.output
+            else crawl_data_path(f"company_{data.get('tax_code') or 'unknown'}.json")
         )
         write_json(data, output_path)
         print(json.dumps(data, ensure_ascii=False, indent=2))

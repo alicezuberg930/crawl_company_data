@@ -1,8 +1,8 @@
 """
-Đọc danh_muc_nganh_nghe.json, vào từng URL ngành và crawl toàn bộ URL doanh nghiệp.
+Đọc crawl_data/danh_muc_nganh_nghe.json, vào từng URL ngành và crawl toàn bộ URL doanh nghiệp.
 
 Đầu ra mặc định:
-    doanh_nghiep_urls.json
+    crawl_data/doanh_nghiep_urls.json
 
 Mỗi phần tử:
     {"business_url": "https://masothue.com/..."}
@@ -24,6 +24,7 @@ from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlunparse
 
 from bs4 import BeautifulSoup
 
+from crawl_paths import crawl_data_path, resolve_json_path
 from crawl_masothue import (
     CrawlError,
     clean_text,
@@ -35,9 +36,9 @@ from crawl_masothue import (
 )
 
 
-DEFAULT_INPUT = Path("danh_muc_nganh_nghe.json")
-DEFAULT_OUTPUT = Path("doanh_nghiep_urls.json")
-DEFAULT_STATE_FILE = Path("crawl_doanh_nghiep_state.json")
+DEFAULT_INPUT = crawl_data_path("danh_muc_nganh_nghe.json")
+DEFAULT_OUTPUT = crawl_data_path("doanh_nghiep_urls.json")
+DEFAULT_STATE_FILE = crawl_data_path("crawl_doanh_nghiep_state.json")
 COMPANY_PATH_PATTERN = re.compile(
     r"^/\d{8,14}(?:-\d{3})?(?:-[^/?#]+)?/?$",
     flags=re.IGNORECASE,
@@ -169,6 +170,10 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     args = build_parser().parse_args()
+    args.input = resolve_json_path(args.input)
+    args.output = resolve_json_path(args.output)
+    args.state_file = resolve_json_path(args.state_file)
+
     if args.delay < 0:
         print("Lỗi: --delay không được âm.")
         return 2

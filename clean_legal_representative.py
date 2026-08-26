@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Remove detail/inactive suffixes from main_business in a JSON array."""
+"""Remove trailing Ngoai ra sentences from legal_representative in a JSON array."""
 
 import argparse
 import json
@@ -11,15 +11,15 @@ from pathlib import Path
 from crawl_paths import resolve_json_path
 
 
-REMOVABLE_SUFFIX = re.compile(
-    r"\s*(?:(?:\(|-)?chi tiết:|\(?cụ thể:|\(không hoạt động|\(trừ tái chế phế|\(trừ sản xuất xốp|\(Ngoài)|\(trừ hóa lỏng.*$",
-    flags=re.IGNORECASE,
+REMOVABLE_SENTENCE = re.compile(
+    r"(?:^|\s+)Ngoài ra\b.*$",
+    flags=re.IGNORECASE | re.DOTALL,
 )
 
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Clean detail/inactive suffixes from main_business."
+        description="Clean Ngoai ra sentences from legal_representative."
     )
     parser.add_argument("input", type=Path, help="Source JSON array file")
     parser.add_argument(
@@ -31,7 +31,7 @@ def parse_args():
     return parser.parse_args()
 
 
-def clean_main_business(data):
+def clean_legal_representative(data):
     if not isinstance(data, list):
         raise ValueError("The top-level JSON value must be an array.")
 
@@ -40,13 +40,13 @@ def clean_main_business(data):
         if not isinstance(item, dict):
             raise ValueError(f"Array item {index} must be an object.")
 
-        value = item.get("main_business")
+        value = item.get("legal_representative")
         if not isinstance(value, str):
             continue
 
-        cleaned = REMOVABLE_SUFFIX.sub("", value).rstrip()
+        cleaned = REMOVABLE_SENTENCE.sub("", value).rstrip()
         if cleaned != value:
-            item["main_business"] = cleaned
+            item["legal_representative"] = cleaned
             changed += 1
 
     return data, changed
@@ -80,7 +80,7 @@ def main():
     args.output = resolve_json_path(args.output) if args.output else None
 
     with args.input.open("r", encoding="utf-8-sig") as file:
-        data, changed = clean_main_business(json.load(file))
+        data, changed = clean_legal_representative(json.load(file))
 
     if args.output:
         write_json(args.output, data)
@@ -89,7 +89,7 @@ def main():
         replace_safely(args.input, data)
         destination = args.input
 
-    print(f"Cleaned main_business in {changed} objects in {destination}.")
+    print(f"Cleaned legal_representative in {changed} objects in {destination}.")
 
 
 if __name__ == "__main__":
